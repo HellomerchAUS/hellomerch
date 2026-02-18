@@ -259,11 +259,11 @@ async function addJobAirtable(job) {
   const res = await fetch(`${FN_URL}?op=add`, {
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },
-    body: JSON.stringify({ job })
+    body: JSON.stringify(job)
   });
   const data = await res.json();
   if (!res.ok) throw new Error(data?.error || 'Failed to add job');
-  return data.job;
+  return { id:id, ...(data.fields ||{}) };
 }
 
 

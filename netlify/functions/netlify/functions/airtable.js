@@ -1,1 +1,0 @@
-netlify/functions/airtable.js
